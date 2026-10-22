@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const API_BASE = "https://mansik-santulan-score.onrender.com";
+  const API_BASE = window.location.origin;
 
   const form = document.getElementById("predict-form");
   const submitBtn = document.getElementById("submit-btn");
@@ -201,10 +201,10 @@
   }
 
   function renderError(label, copy) {
-    errorLabelEl.textContent = label;
+    if (errorLabelEl) errorLabelEl.textContent = label;
     errorCopyEl.textContent = copy;
     showState("error");
-  }
+}
 
   // ---------------------------------------------------------
   // Parse FastAPI / Pydantic 422 error responses into
